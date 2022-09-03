@@ -1,8 +1,16 @@
-two_digit_number = input("Type a two digit number: ")
-print(type(two_digit_number))
-first_digit = two_digit_number[0]
-second_digit = two_digit_number[1]
+# 🚨 Don't change the code below 👇
+height = input("enter your height in m: ")
+weight = input("enter your weight in kg: ")
+# 🚨 Don't change the code above 👆
 
-result = int(first_digit) + int(second_digit)
+#Write your code below this line 👇
 
-print(result)
+# Convert the string to a float
+height_num = float(height)
+weight_num = float(weight)
+
+# Use the BMI calculation
+BMI = weight_num / (height_num * height_num)
+
+# Use format to round of the float output to 2 decimal number
+print("Your BMI is " + format(BMI, '.2f') + ".")

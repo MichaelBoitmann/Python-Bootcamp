@@ -37,4 +37,4 @@ weight_num = float(weight)
 BMI = weight_num / (height_num * height_num)
 
 # Use format to round of the float output to 2 decimal number
-print("Your BMI is " + format(BMI, '.2f') + ".")
+print("Your BMI is " + format(BMI, '.2f'))

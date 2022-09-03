@@ -10,7 +10,7 @@ height_num = float(height)
 weight_num = float(weight)
 
 # Use the BMI calculation
-BMI = weight_num / (height_num * height_num)
+BMI = weight_num / height_num ** 2
 
 # Use format to round of the float output to 2 decimal number
-print("Your BMI is " + format(BMI, '.2f') + ".")
+print("Your BMI is " + format(BMI, '.2f'))

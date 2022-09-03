@@ -14,3 +14,5 @@ BMI = weight_num / height_num ** 2
 
 # Use format to round of the float output to 2 decimal number
 print("Your BMI is " + format(BMI, '.2f'))
+# Convert int to str to concatenate to str
+print("Your BMI is " + str(round(BMI)))

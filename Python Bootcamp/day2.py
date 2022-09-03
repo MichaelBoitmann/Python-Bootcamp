@@ -7,7 +7,7 @@
 # print("Your name has " + new_num_char + " characters.")
 
 ###############################################################
-# Challenge 1
+# Challenge 1 = adding 2 digits
 ###############################################################
 # two_digit_number = input("Type a two digit number: ")
 # # Input digits are in string type
@@ -20,7 +20,7 @@
 # print(result)
 
 ###############################################################
-# Challenge 2
+# Challenge 2 -  BMI calculation
 ###############################################################
 # # 🚨 Don't change the code below 👇
 # height = input("enter your height in m: ")
@@ -42,25 +42,48 @@
 # print("Your BMI is " + str(round(BMI)))
 
 ###############################################################
-# Challenge 3
+# Challenge 3 - Life remaining
 ###############################################################
-# 🚨 Don't change the code below 👇
-age = input("What is your current age?")
-# 🚨 Don't change the code above 👆
+# # 🚨 Don't change the code below 👇
+# age = input("What is your current age?")
+# # 🚨 Don't change the code above 👆
 
-#Write your code below this line 👇
-new_age = int(age)
+# #Write your code below this line 👇
+# new_age = int(age)
 
-total_days = 90 * 365
-total_weeks = 90 * 52
-total_months = 90 * 12
+# total_days = 90 * 365
+# total_weeks = 90 * 52
+# total_months = 90 * 12
 
-consumed_days = new_age * 365
-consumed_weeks = new_age * 52
-consumed_months = new_age *12
+# consumed_days = new_age * 365
+# consumed_weeks = new_age * 52
+# consumed_months = new_age *12
 
-days_left = total_days - consumed_days
-weeks_left = total_weeks - consumed_weeks
-months_left = total_months - consumed_months
+# days_left = total_days - consumed_days
+# weeks_left = total_weeks - consumed_weeks
+# months_left = total_months - consumed_months
 
-print(f"You have\n {days_left} days,\n {weeks_left} weeks, and\n {months_left} months left.")
+# print(f"You have\n {days_left} days,\n {weeks_left} weeks, and\n {months_left} months left.")
+
+###############################################################
+# Challenge 4 - Tip Calculator
+###############################################################
+print("Welcome to the tip calculator.")
+
+total_bill = input("What was the total bill? $")
+
+percentage = input("What percentage tip would you like to give? 10, 12, or 15? ")
+
+tip_amount = format((int(total_bill) * (int(percentage) / 100)), '.2f')
+
+convert_percentage = 1 + (int(percentage) / 100)
+
+num_people = input("How many people to split the bill? ")
+
+bill_distribution = format((float(total_bill) * float(convert_percentage)) / int(num_people), '.2f')
+
+print("\n\nYour Receipt")
+print(f"Total Bill: ${total_bill}")
+print(f"Selected Percentage: {percentage}")
+print(f"Number of People: {num_people}\n")
+print(f"Each person will contribute a total of ${bill_distribution} to give a tip of amount of ${tip_amount}")

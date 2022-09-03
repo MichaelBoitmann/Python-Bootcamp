@@ -1,20 +1,19 @@
-# 🚨 Don't change the code below 👇
-age = input("What is your current age?")
-# 🚨 Don't change the code above 👆
+print("Welcome to the tip calculator.")
 
-#Write your code below this line 👇
-new_age = int(age)
+total_bill = input("What was the total bill? $")
 
-total_days = 90 * 365
-total_weeks = 90 * 52
-total_months = 90 * 12
+percentage = input("What percentage tip would you like to give? 10, 12, or 15? ")
 
-consumed_days = new_age * 365
-consumed_weeks = new_age * 52
-consumed_months = new_age *12
+tip_amount = format((int(total_bill) * (int(percentage) / 100)), '.2f')
 
-days_left = total_days - consumed_days
-weeks_left = total_weeks - consumed_weeks
-months_left = total_months - consumed_months
+convert_percentage = 1 + (int(percentage) / 100)
 
-print(f"You have\n {days_left} days,\n {weeks_left} weeks, and\n {months_left} months left.")
+num_people = input("How many people to split the bill? ")
+
+bill_distribution = format((float(total_bill) * float(convert_percentage)) / int(num_people), '.2f')
+
+print("\n\nYour Receipt")
+print(f"Total Bill: ${total_bill}")
+print(f"Selected Percentage: {percentage}")
+print(f"Number of People: {num_people}\n")
+print(f"Each person will contribute a total of ${bill_distribution} to give a tip of amount of ${tip_amount}")

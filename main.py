@@ -1,23 +1,32 @@
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
 
-if height >= 120:
-      print("You can ride the rollercoaster!")
-      age = int(input("What is your age? "))
-      if age < 12:
-            bill = 5
-            print("Please pay $5.")
-      elif age <= 18:
-            bill = 7
-            print("Please pay $7.")
-      else:
-            bill = 12
-            print("Please pay $12.")
-      
-      includes_photo = input("Do you want a photo taken? (Y or N) :  ")
-      if includes_photo == "Y":
-            bill += 3
-      print(f"Your final bill is {bill}")
+#Write your code below this line 👇
+
+
+combined_names = name1 + name2
+lower_names = combined_names.lower()
+t = lower_names.count("t")
+r = lower_names.count("r")
+u = lower_names.count("u")
+e = lower_names.count("e")
+first_digit = t + r + u + e
+
+l = lower_names.count("l")
+o = lower_names.count("o")
+v = lower_names.count("v")
+e = lower_names.count("e")
+second_digit = l + o + v + e
+
+score = int(str(first_digit) + str(second_digit))
+
+if (score < 10) or (score > 90):
+    
+  print(f"Your score is {score}, you go together like coke and mentos.")
+elif (score >= 40) and (score <= 50):
+  print(f"Your score is {score}, you are alright together.")
 else:
-      print("Sorry, you have to grow taller before you can ride.")
+  print(f"Your score is {score}.")

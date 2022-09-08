@@ -1,15 +1,9 @@
-# Split string method
-names_string = input("Give me everybody's names, separated by a comma. ")
-names = names_string.split(", ")
-# 🚨 Don't change the code above 👆
-import random
-#Write your code below this line 👇
+# dirty_dozen = ["Strawberries", "Spinach", "Kale", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears", "Tomatoes", "Celery", "Potatoes"]
 
-# name_list = len(names)
-# random_choice = random.randint(0, name_list-1)
-# next_person_play = names[random_choice]
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
 
-next_person_play = random.choice(names)
-print(next_person_play + " is going to buy a meal today!")
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
 
-# Angela, Ben, Jenny, Michael, Chloe
+dirty_dozen = [fruits, vegetables]
+
+print(dirty_dozen)

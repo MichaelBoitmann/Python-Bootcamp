@@ -152,4 +152,3 @@ else:
     	print("You win!")
     elif computer_choice == user_choice:
     	print("It's a draw")
-

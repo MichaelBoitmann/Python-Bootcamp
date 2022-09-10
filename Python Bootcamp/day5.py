@@ -1,4 +1,11 @@
 ###############################################################
+# Lecture - for loop with range
+###############################################################
+for number in range(1, 101):
+    total += number
+print(total)
+
+###############################################################
 # Challenge 1 - average height
 ###############################################################
 
@@ -24,7 +31,7 @@ average_height = round(total_height / number_of_students)
 print(f"Average Height = {average_height}")
 
 ###############################################################
-# Challenge  - highest score
+# Challenge 2 - highest score
 ###############################################################
 
 # 🚨 Don't change the code below 👇
@@ -41,3 +48,22 @@ for score in student_scores:
     if score > highest_score:
         highest_score = score
 print(f"The highest score in the class is: {highest_score}")
+
+###############################################################
+# Challenge 3 - sum of even numbers in range of 100
+###############################################################
+#Write your code below this row 👇
+total = 0
+for number in range(0, 101, 2):
+    total += number
+    # print(number) # will print each number
+print(total)
+
+# another sulution
+
+total = 0
+for number in range(1, 101):
+    if number % 2 == 0:
+        total += number
+
+print(total)

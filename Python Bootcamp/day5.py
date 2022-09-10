@@ -67,3 +67,16 @@ for number in range(1, 101):
         total += number
 
 print(total)
+
+###############################################################
+# Challenge 4 - fizz, buzz or fizzbuzz (divisible by 3 or 5 or 3 and 5)
+###############################################################
+for number in range(1, 101):
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    elif number % 3 == 0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)

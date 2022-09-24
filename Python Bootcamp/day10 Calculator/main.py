@@ -1,4 +1,6 @@
-# Calculator
+from replit import clear
+from art import logo
+
 
 # Add
 def add(n1, n2):
@@ -40,7 +42,7 @@ def calculator():
         print(f"\n{num1} {math_operation} {num2} = {answer}\n")
        
 
-        continue_calculation = input(f"Type \n 'y' to continue calculating with {answer}, o \n 'n' to start a new calculation \n 'q' to quit. ")
+        continue_calculation = input(f"Type \n 'y' to continue calculating with {answer} \n 'n' to start a new calculation \n 'q' to quit. ")
     
         if  continue_calculation == 'y':
             num1 = answer

@@ -11,7 +11,7 @@
 ## The Jack/Queen/King all count as 10.
 ## The the Ace can count as 11 or 1.
 ## Use the following list as the deck of cards:
-## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 ## The cards in the list have equal probability of being drawn.
 ## Cards are not removed from the deck as they are drawn.
 ## The computer is the dealer.
@@ -37,7 +37,7 @@ import random
 def deal_card():
     """Returns a random card from the deck."""
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    random.choice(cards)
+    card = random.choice(cards)
     return card
 
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
@@ -67,6 +67,8 @@ for _ in range(2):
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
+print(f"  Your cards: {user_cards}, current score: {user_score}")
+print(f"  Computer's first card: {computer_cards[0]}")
 
 if user_score == 0 or computer_score == 0 or user_score > 21:
     is_game_over = True

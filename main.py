@@ -1,95 +1,90 @@
-from random import randint
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
 
-EASY_LEVEL_TURNS = 10
-HARD_LEVEL_TURNS = 5
-
-
-# Function to check the user's guess against the actual answer
-def check_answer(guess, answer, turns):
-  """Checks the answer against guess. Returns the number of turns remaining."""
-  if guess > answer:
-    print("Too High! ")
-    return turns - 1
-  elif guess < answer:
-    print("Too Low! ")
-    return turns - 1
-  else:
-    print(f"You got it! The answer was {answer} !")
-
-
-# Function to set difficulty
-def set_difficulty():
-  level = input("Choose a difficulty. Type 'easy' or 'hard': ")
-  if level == "easy":
-    return EASY_LEVEL_TURNS
-  else:
-    return HARD_LEVEL_TURNS
-
-def game():
-  # Choosing a random number between 1 and 100
-  print("Welcome to the Number Guessing Game!")
-  print("I'm thinking of a number between 1 and 100.")
-  answer = randint(1, 100)
-  print(f"Psst, the correct asnwer is {answer}")
-  
-  turns = set_difficulty()
-  
-  
-  # Repeat the guessing game
-  guess = 0
-  while guess != answer:
-    print(f"You have {turns} attempts remaining to guess the number.")
-    
-    # Let a user guess a number
-    guess = int(input("Make a guess: "))
-    
-    turns = check_answer(guess, answer, turns)
-    if turns == 0:
-      print("You've run out of guesses! You loose!")
-      play_again = print("Type 'y' if you want to play again and 'n' if not. ")
-      if play_again == 'y':
-        game()
-      else:
-        return
-    elif guess != answer:
-      print("Guess again. ")
+profit = 0
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
 
 
-game()
+def is_resource_sufficient(order_ingredients):
+    """Returns True when order can be made, False if ingredients are insufficient."""
+    for item in order_ingredients:
+        if order_ingredients[item] > resources[item]:
+            print(f"​Sorry there is not enough {item}.")
+            return False
+    return True
 
 
+def process_coins():
+    """Returns the total calculated from coins inserted."""
+    print("Please insert coins.")
+    total = int(input("how many quarters?: ")) * 0.25
+    total += int(input("how many dimes?: ")) * 0.1
+    total += int(input("how many nickles?: ")) * 0.05
+    total += int(input("how many pennies?: ")) * 0.01
+    return total
 
 
+def is_transaction_successful(money_received, drink_cost):
+    """Return True when the payment is accepted, or False if money is insufficient."""
+    if money_received >= drink_cost:
+        change = round(money_received - drink_cost, 2)
+        print(f"Here is ${change} in change.")
+        global profit
+        profit += drink_cost
+        return True
+    else:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
 
 
+def make_coffee(drink_name, order_ingredients):
+    """Deduct the required ingredients from the resources."""
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print(f"Here is your {drink_name} ☕️. Enjoy!")
 
 
+is_on = True
 
-
-
-
-
-
-
-# from secrets import randbelow
-
-# print("Welcom to the Number Guessing Game!")
-# print("I'm thinking of a number between 1 and 100.")
-
-# computer_number = randbelow(101)
-# print(f"Pssst, the correct answer is {computer_number}")
-
-# difficulty = input("Choose difficulty. Type 'easy' or 'hard': ")
-
-# if difficulty == 'hard':
-#   print("You have 5 attempts remaining to guess the number.")
-# else:
-#   print("You have 10 attempts remaining to guess the number.")
-
-# player_input = int(input("Make a guess: "))
-
-# keep_guessing = False
-
-# while keep_guessing:
-#   if player_input > computer_number:
-#     print("")
+while is_on:
+    choice = input("​What would you like? (espresso/latte/cappuccino): ")
+    if choice == "off":
+        is_on = False
+    elif choice == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${profit}")
+    else:
+        drink = MENU[choice]
+        if is_resource_sufficient(drink["ingredients"]):
+            payment = process_coins()
+            if is_transaction_successful(payment, drink["cost"]):
+                make_coffee(choice, drink["ingredients"])
